@@ -19,7 +19,8 @@ LOG_LEVEL={
 
 
 level_name = sys.argv[1] if len(sys.argv)>1 else 'unset'
-logging.basicConfig(level=LOG_LEVEL.get(level_name,''))
+logging.basicConfig(level=LOG_LEVEL.get(level_name, logging.NOTSET),
+                    )
 
 logging.debug('this is a debug message')
 logging.info('this is a info message')
