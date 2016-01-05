@@ -5,8 +5,8 @@
 import smtplib
 from email.mime.text import MIMEText
 
-sender = "majingrzl@163.com"
-reciver = ['majingrzl@163.com']
+sender = "xxx@163.com"
+reciver = ['xxx@163.com']
 msg = MIMEText('this is a customer to send email')
 msg['From'] = sender
 msg['To'] = str(reciver)
