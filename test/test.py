@@ -6,17 +6,13 @@ a.txt内容如下。xx为汉字。若最后一个数字相同，则按每一行�
 2880,xx,xx,xx,xx,xx,xx,6
 2881,xx,xx,xx,xx,xx,xx,xx,248
 2882,xx,1
-2885,xx,xx,xx,xx,1
-2886,xx,xx,xx,xx,5
 2887,xx,xx,xx,1
 希望得到的结果存到b.txt 里边。内容如下：
 2878,xx,xx,xx,xx,xx,1264
 2881,xx,xx,xx,xx,xx,xx,xx,248
 2877,xx,xx,xx,xx,xx,xx,10
 2880,xx,xx,xx,xx,xx,xx,6
-2886,xx,xx,xx,xx,5
 2882,xx,1
-2885,xx,xx,xx,xx,1
 2887,xx,xx,xx,1
 """
 
