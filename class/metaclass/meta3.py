@@ -16,9 +16,9 @@ class SubMeta(type):
         print "meta:%s\n classname:%s\n supers:%s\n attributedicts:%s\n"%(meta,classname,supers,attributedicts)
         return type.__new__(meta, classname, supers,attributedicts)
 
-    def __init__(meta, classname, supers,attributedicts):
+    def __init__(Class,classname, supers,attributedicts):
         print "Init ...."
-        print "meta:%s\n classname:%s\n supers:%s\n attributedicts:%s\n"%(meta,classname,supers,attributedicts)
+        print "classname:%s\n supers:%s\n attributedicts:%s\n"%(classname,supers,attributedicts)
 
 
 class Eggs(object):
