@@ -1,8 +1,9 @@
--*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 """子类化Thread类"""
-    import threading,time  
-    loops=[4,2]  
-    class MyThread(threading.Thread):  
+import threading,time
+loops=[4,2]
+
+class MyThread(threading.Thread):
          def __init__(self,index, sec):  
              threading.Thread.__init__(self)  
              self.index = index  
@@ -13,7 +14,7 @@
              time.sleep(self.sec)  
              print "loop ends:%d"%(self.sec) + "  %s\n"%(time.ctime())  
       
-    def main():  
+def main():
         nloop = range(len(loops))  
         threads = []  
         for i in nloop:  
@@ -29,5 +30,5 @@
         print "all done:%s\n"%(time.ctime())  
       
       
-    if __name__ == "__main__":  
+if __name__ == "__main__":
         main()  

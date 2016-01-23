@@ -1,22 +1,24 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 """创建一个Thread类实例，传入一个可调用的类对象"""
 import time, threading  
-loops=[4,2]  
-  
+
+loops = [4, 2]
 class MyThread(object):  
-      def __init__(self, func, args,name=""):  
+      def __init__(self, func, args, name=""):
           self.args = args  
           self.func = func  
           self.name = name  
   
       def __call__(self, *args, **kwargs):  
           self.func(*self.args)  
-  
+
+
 def loop(nloop, nsec):  
     print "loop starts:%d"%(nloop) + "  %s\n"%(time.ctime())  
     time.sleep(nsec)  
     print "loop ends:%d"%(nloop) + "  %s\n"%(time.ctime())  
-  
+
+
 def main():  
     threads =[]  
     for i in range(len(loops)):  

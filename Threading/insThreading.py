@@ -17,7 +17,7 @@ def main():
 
      threads =[]  
      
-     nloop = range(nlen(loops))  
+     nloop = range(len(loops))
      
      for i in nloop:  
      
