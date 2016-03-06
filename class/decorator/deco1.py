@@ -2,6 +2,9 @@
 """
 类装饰器
 """
+
+from functools import wraps
+import time
 instances = {}
 def getInstances(aClass, *args):
     if aClass not in instances:
@@ -28,6 +31,27 @@ class Spam:
     def __init__(self, val):
         self.attr = val
 
+
+"""
+函数装饰器
+"""
+def timethis(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.clock()
+        result = func(*args, **kwargs)
+        end = time.clock()
+        print "%s: %s"%(func.__name__, end-start)
+        return result
+    return wrapper
+
+@timethis
+def cutdown(n):
+    while n>0:
+        n -= 1
+
+
+
 if __name__ == '__main__':
     per = Person('Lucy',23, 1.23)
     print per
@@ -43,5 +67,7 @@ if __name__ == '__main__':
     bb = Spam('to china')
     print bb.attr
 
-
+    print"函数装饰器".center(40, '=')
+    cutdown(6000)
+    cutdown(3000)
 
