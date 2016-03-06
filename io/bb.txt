@@ -1,0 +1,5 @@
+﻿研究saltstack的使用和源码，为云平台的部署提供接口。仅在该公司工作了一个半月，因体检查出身体患有疾病，就辞职回家养病。在家养病期间继续学习python和Django。
+
+    python  看了《python 学习手册》和 《python cookbook》两本书，积极回答oschina和csdn上有关python的问题，在oschina上分享代码，写博客（http://blog.csdn.net/python_tty），写代码（https://github.com/rzlmma/pythonPro）
+
+    django  看了django book，并创建项目演示书中的例子?
