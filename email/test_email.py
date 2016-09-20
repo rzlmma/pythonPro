@@ -8,8 +8,8 @@ from email.mime.text import MIMEText
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger('Email')
 
-sender = "majingrzl@163.com"
-reciver = ['yanghongxingzzu@163.com']
+sender = "xxx@163.com"
+reciver = ['xxx@163.com']
 host = 'smtp.163.com'
 port = 25
 msg = MIMEText('this is a smtplib email')
