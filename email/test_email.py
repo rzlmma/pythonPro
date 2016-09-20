@@ -1,29 +1,29 @@
 # -*- coding:utf-8 -*-
 """
 发送邮件
-存在问题没解决：  ERROR:Email:(535, 'Error: authentication failed') 邮箱的用户名和密码都是对的
 """
-import smtplib,logging
-import email.utils
+import smtplib,logging,datetime
 from email.mime.text import MIMEText
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger('Email')
 
-sender = "xxx@163.com"
-reciver = ['xxx@qq.com']
+sender = "majingrzl@163.com"
+reciver = ['yanghongxingzzu@163.com']
 host = 'smtp.163.com'
 port = 25
 msg = MIMEText('this is a smtplib email')
 msg['Form'] = 'xxx@163.com'
-msg['To'] = 'xxx@qq.com'
-msg['Subject'] = 'system error warning'
+msg['To'] = 'xxx@163.com'
+msg['Subject'] = 'replay email'
+msg['Date'] = datetime.datetime.now().strftime('%Y-%m-%d  %H:%M:%S')
 
+
+smtp = smtplib.SMTP()
 try:
-    smtp = smtplib.SMTP()
-    code,msg=smtp.connect(host,port)
+    code, message = smtp.connect(host,port)
     smtp.set_debuglevel(True)
-    rest = smtp.verify('xxx@163.com')
+    rest = smtp.verify(sender)
     smtp.ehlo(host)
     if smtp.has_extn('STARTTLS'):
        smtp.starttls()
@@ -35,5 +35,6 @@ try:
     logger.info('send email success')
 except Exception,e:
     logger.error(e)
+finally:
     smtp.quit()
 
