@@ -1,7 +1,9 @@
 # -*- coding:utf-8 -*-
 """
-单例模式
+单例模式 在程序运行过程中，如果某个类只能有一个实例
 """
+
+
 class OnlyOne:
     class __OnlyOne:
         def __init__(self,arg):
@@ -10,6 +12,7 @@ class OnlyOne:
         def __str__(self):
             return repr(self)+self.value
     instance = None
+
     def __init__(self,arg):
         if not OnlyOne.instance:
             print "create insatance"

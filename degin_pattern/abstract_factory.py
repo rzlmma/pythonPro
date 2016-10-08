@@ -3,6 +3,7 @@
 抽象工厂模式
 """
 from random import choice
+
 class PetShop:
     def __init__(self, animal_factory=None):
         self.animal_factory = animal_factory
@@ -13,6 +14,7 @@ class PetShop:
         print "the animal speak:",animal.speak()
         print "the animal food:",self.animal_factory.get_food()
         print "the pet color:", animal.color()
+
 
 class Dog:
     _color = ['yellow','white','black','blue']
@@ -25,6 +27,7 @@ class Dog:
         self.color = choice(Dog._color)
         return self.color
 
+
 class Cat:
     _color = ['yellow','white','black']
     def speak(self):
@@ -35,11 +38,13 @@ class Cat:
         self.color = choice(Cat._color)
         return self.color
 
+
 class DogFactory:
     def get_pet(self):
         return Dog()
     def get_food(self):
         return "dog food"
+
 
 class CatFactory:
     def get_pet(self):
@@ -47,8 +52,10 @@ class CatFactory:
     def get_food(self):
         return "cat food"
 
+
 def get_factory():
     return choice([DogFactory,CatFactory])()
+
 
 if __name__ == "__main__":
     shop = PetShop(DogFactory())

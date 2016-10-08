@@ -4,19 +4,25 @@
 """
 class Button:
     html = '<button></button>'
+
     def get_html(self):
         return self.html
+
 
 class Image(Button):
     html = "<img alt= \>"
 
+
 class Input(Button):
     html='<input type="text" >'
+
 
 class Falsh(Button):
     html=''
 
+
 class FactoryPattern():
+
     def create_button(self, param):
         typeclass = param.capitalize()
         return globals()[typeclass]()
