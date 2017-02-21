@@ -18,6 +18,7 @@ class MyThread(Thread):
         if self.event.isSet():
             print "event true:      begin to sleep %s seconds....\n" % self.sec
             self.event.clear()
+            self.event.wait()
         else:
             self.event.set()
             print " set event to true......      thread %s" % self.sec
