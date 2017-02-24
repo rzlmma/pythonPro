@@ -8,22 +8,23 @@ python 实现栈
 
 class Stack(object):
     def __init__(self):
-        self._top = -1
+        self._top = 0
         self._stack = []
 
     def put(self, data):
-        self._top += 1
         self._stack.insert(self._top, data)
+        self._top += 1
 
     def pop(self):
         if self.isEmpty():
             raise ValueError('stack 为空')
-        data = self._stack[self._top]
         self._top -= 1
+        data = self._stack[self._top]
+
         return data
 
     def isEmpty(self):
-        if self._top == -1:
+        if self._top == 0:
             return True
         else:
             return False
