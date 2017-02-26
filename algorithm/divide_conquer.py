@@ -9,14 +9,16 @@
 import random
 
 def find_max_crossing_subarray(alist, low, mid, high):
-    left_sum = max_left = sum = 0
+    left_sum = float("-inf")
+    max_left = sum = 0
     for i in range(mid, low-1, -1):
         sum += alist[i]
         if sum > left_sum:
             left_sum = sum
             max_left = i
 
-    right_sum = max_right = sum = 0
+    right_sum = float("-inf")
+    max_right = sum = 0
     for j in range(mid+1, high+1):
         sum += alist[j]
         if sum > right_sum:
