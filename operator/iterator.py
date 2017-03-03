@@ -5,9 +5,11 @@ python_version = 2.7
 重载__iter__(),next()方法，python3.0重载__next__()
 """
 from __future__ import print_function
-#单迭代器
-class MyIter:
-    def __init__(self,start,stop):
+
+
+# 单迭代器
+class MyIter(object):
+    def __init__(self, start, stop):
         self.start = start - 1
         self.stop = stop
 
@@ -20,9 +22,10 @@ class MyIter:
         self.start += 1
         return self.start **2
 
-#创建多迭代器
-class MyIterator:
-    def __init__(self,value):
+
+# 创建多迭代器
+class MyIterator(object):
+    def __init__(self, value):
         self.value = value
         self.offest = 0
 
@@ -33,16 +36,17 @@ class MyIterator:
         self.offest += 2
         return item
 
-class SkiperObject:
-      def __init__(self,vlaue):
-          self.value = vlaue
 
-      def __iter__(self):
-          return MyIterator(self.value)
+class SkiperObject:
+    def __init__(self, vlaue):
+        self.value = vlaue
+
+    def __iter__(self):
+        return MyIterator(self.value)
 
 if __name__ == "__main__":
-    for item in MyIter(1,5):
-        print(item,end=',')
+    for item in MyIter(1, 5):
+        print(item, end=',')
 
     print()
     obj = SkiperObject('abcdef')
