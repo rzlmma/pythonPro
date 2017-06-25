@@ -23,10 +23,24 @@ class MyIter(object):
         else:
             raise TypeError(u'这里需要一个可迭代的对象')
 
+# 自定义可迭代对象
+class Myiterobj(object):
+    def __init__(self, value):
+         self.value = value
+
+    def __iter__(self):
+        print "call __iter__ function"
+        return iter(self.value)
+
+
 if __name__ == "__main__":
     ll = [2,3,4,5,6,7,7]
     new_ll = MyIter(ll)
     print new_ll.next()
 
+
+    aa = Myiterobj([3,4,5,6,7])
+    for i in aa:
+        print i
 
 
