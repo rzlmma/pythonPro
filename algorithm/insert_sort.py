@@ -16,7 +16,7 @@ def sort_acm(sort_list):
         while i >= 0 and sort_list[i] > key:
             sort_list[i], sort_list[i + 1] = sort_list[i + 1], sort_list[i]
             i -= 1
-    print "sorted list:", sort_list
+    print("sorted list:", sort_list)
 
 
 def sort_desc(sort_list):
@@ -29,7 +29,17 @@ def sort_desc(sort_list):
         while i >= 0 and sort_list[i] < key:
             sort_list[i], sort_list[i + 1] = sort_list[i + 1], sort_list[i]
             i -= 1
-    print "sorted list:", sort_list
+    print("sorted list:", sort_list)
+
+
+def insert(aa):
+    for i in range(len(aa) - 1):
+        j = i
+        while j>=0:
+            if aa[j] > aa[j+1]:
+                aa[j], aa[j+1] = aa[j+1], aa[j]
+            j = j-1
+    return aa
 
 
 if __name__ == "__main__":

@@ -33,5 +33,4 @@ def my_rle(sequeue):
 if __name__ == "__main__":
     old_list = "getaaaaaaaupbbbbbbbbbbbbaaaaaaaaaa"
     ss = my_rle(old_list)
-    print "ss:", ss
 
