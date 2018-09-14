@@ -21,7 +21,7 @@ logging.error('this is a error message')
 
 
 
-print "--------log.txt--------"
+print("--------log.txt--------")
 for line in open('log.txt'):
-    print line
+    print(line)
 

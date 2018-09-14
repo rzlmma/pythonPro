@@ -21,6 +21,6 @@ class MyDate(object):
 
 if __name__ == '__main__':
     d = MyDate(2015,12,5)
-    print format(d)
-    print format(d,'myd')
-    print "this date is {:mdy}".format(d)
+    print(format(d))
+    print(format(d,'myd'))
+    print("this date is {:mdy}".format(d))

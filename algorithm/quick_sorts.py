@@ -22,8 +22,8 @@ def quick_sort(alist, p, r):
 if __name__ == "__main__":
     import random
     alist = random.sample(range(100),20)
-    print "befor sort: ", alist
+    print("befor sort: ", alist)
     quick_sort(alist, 0, 19)
-    print "after sort: ", alist
+    print("after sort: ", alist)
 
 
