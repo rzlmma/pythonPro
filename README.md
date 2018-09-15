@@ -1,4 +1,5 @@
 # pythonPro
-python 
-the project collect some module of python. some of the code from the books what I read ,some from the work. The folder of standardlibray contains
-the standard libray of python
+# 1. python基本模块
+# 2. 数据结构python实现，《数据结构C++版》严蔚敏 一书中的算法python实现
+# 3. python核心编程一书中的部分代码实现
+# 4. 设计模式 python实现
