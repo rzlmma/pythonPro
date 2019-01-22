@@ -45,5 +45,5 @@ def find_maximum_subarray(alist, low, high):
 
 if __name__ == "__main__":
     alist = random.sample(range(-100, 100) , 20)
-    print "alist:", alist
-    print find_maximum_subarray(alist, 0, 19)
+    print("alist:", alist)
+    print(find_maximum_subarray(alist, 0, 19))

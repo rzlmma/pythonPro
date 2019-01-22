@@ -31,6 +31,6 @@ def merge_sort(alist, p, r):
 
 if __name__ == "__main__":
     alist = random.sample(range(1, 100), 19)
-    print "befor sort:", alist
+    print("befor sort:", alist)
     merge_sort(alist,0,18)
-    print "after sort:", alist
+    print("after sort:", alist)

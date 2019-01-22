@@ -6,10 +6,10 @@
 import numpy as np
 
 matrix_A = np.arange(32, dtype=int).reshape(4, 8)
-print "matrix_A: ", matrix_A
+print ("matrix_A: ", matrix_A)
 
 matrix_B = matrix_A.T
-print "matrix_B: ", matrix_B
+print ("matrix_B: ", matrix_B)
 
 matrix_C = np.empty((4, 4))
 
@@ -21,5 +21,5 @@ for i in range(4):
             sum += matrix_A[i][k] * matrix_B[k][j]
         matrix_C[i][j] = sum
 
-print "matrix_C: ", matrix_C
+print ("matrix_C: ", matrix_C)
 
