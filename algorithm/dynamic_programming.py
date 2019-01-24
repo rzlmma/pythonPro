@@ -47,11 +47,12 @@ def cut_rod_2(n, r):
 
 
 def cut_rod_bottom(n, r):
+    r[0] = 0
     for i in range(1, n+1):
-        for j in range(i):
-            if r[j] >= 0:
-                continue
-            r[j] = max(price[j], r[j])
+        p = 0
+        for j in range(1, i+1):
+            p = max(p, price[j-1]+r[i - j])
+        r[i] = p
     return r
 
 
@@ -61,8 +62,8 @@ if __name__ == "__main__":
     # print("rest: ", rest)
 
     r = [-1]*11
-    rest = cut_rod_2(10, r)
-    print("cut_rod_2: ", rest)
+    # rest = cut_rod_2(10, r)
+    # print("cut_rod_2: ", rest)
 
     rest = cut_rod_bottom(10, r)
     print("cut_rod_bottom: ", rest)
