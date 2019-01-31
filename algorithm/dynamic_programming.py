@@ -47,11 +47,17 @@ def cut_rod_2(n, r):
 
 
 def cut_rod_bottom(n, r):
+    """
+    没种长度的最优解的切割方案
+    """
     r[0] = 0
     for i in range(1, n+1):
         p = 0
         for j in range(1, i+1):
-            p = max(p, price[j-1]+r[i - j])
+            if p < (price[j-1]+r[i - j]):
+                p = price[j-1]+r[i - j]
+                s[i] = ("n:%s" %i, (j, i - j), "p:%s" % p)
+
         r[i] = p
     return r
 
@@ -62,8 +68,10 @@ if __name__ == "__main__":
     # print("rest: ", rest)
 
     r = [-1]*11
+    s = [0] * 11
     # rest = cut_rod_2(10, r)
     # print("cut_rod_2: ", rest)
 
     rest = cut_rod_bottom(10, r)
     print("cut_rod_bottom: ", rest)
+    print("cut_rod_bottom: ", s)
