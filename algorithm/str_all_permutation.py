@@ -35,6 +35,14 @@ def test(alist, begin, to, step):
 
 
 
+def test_1():
+    print("test 1 .....")
+
+
+def test_2():
+    print("test 2 ....")
+
+
 if __name__ == "__main__":
     # CalcAllPermutation(['a'], 0,0)
     test(['a', 'b', 'c', 'd'], 0, 4, 1)
