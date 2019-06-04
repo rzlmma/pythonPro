@@ -9,12 +9,12 @@ class Customer:
         self.name = name
 
     def order(self, server,pizza_name,pizza_size):
-        print "%s order from the [server] %s"%(self.name,server.name)
+        print ("%s order from the [server] %s"%(self.name,server.name))
         pizza = Pizza(pizza_name,pizza_size)
         pizza_info = pizza.pizza_info
         if pizza_info.has_key(pizza_name):
             if pizza_info.get(pizza_name).has_key(pizza_size):
-                print "[pizza_name] -- %s  [pizza_size] -- %s"%(pizza_name,pizza_size)
+                print ("[pizza_name] -- %s  [pizza_size] -- %s"%(pizza_name,pizza_size))
             else:
                 raise ValueError("we don't have the pizza,please choose a new pizza")
         else:
@@ -23,7 +23,7 @@ class Customer:
     def pay(self, server,pizza_name,pizza_size):
         pizza = Pizza(pizza_name, pizza_size)
         price = pizza.getPrice()
-        print "%s pay to the [server] %s, [price] %s"%(self.name, server.name,price)
+        print ("%s pay to the [server] %s, [price] %s"%(self.name, server.name,price))
 
 class Pizza:
     pizza_info = {'pizza_1':{'9':32, '12':45}, 'pizza_2':{'9':24, '12':34}, 'pizza_3':{'9':48, '12':56}}
@@ -47,7 +47,7 @@ class PizzaShop:
         self.chef = PizzaRobot('Spam')
 
     def order(self, name,pizza_name, pizza_size):
-        print"order:"
+
         customer = Customer(name)
         count_server = len(self.server)
         index = randint(0, count_server-1) if count_server > 1 else 0
@@ -72,6 +72,5 @@ if __name__ == "__main__":
     shop.order('Lucy','pizza_1','12')
 
     Pizza().addPizza('pizza_4','24',67)
-    print Pizza().pizza_info
+
     Pizza().addPizza('pizza_4','14',34)
-    print Pizza().pizza_info

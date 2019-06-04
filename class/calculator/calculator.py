@@ -11,7 +11,7 @@ class Calculator:
         self.rnum = rnum
     def show_result(self):
         result = self.operator.get_result(self.lnum, self.rnum)
-        print "{0} {1} {2} = {3}".format(self.lnum, self.operator._oper, self.rnum, result)
+        print ("{0} {1} {2} = {3}".format(self.lnum, self.operator._oper, self.rnum, result))
 
 class Adder:
     _oper = '+'
@@ -40,8 +40,8 @@ class Power:
     def get_result(self,lnum, rnum):
         return lnum**rnum
 def get_operator_nums():
-    print"Note: the expression contains two numbers and a operator"
-    result = raw_input('please input a expression:')
+    print("Note: the expression contains two numbers and a operator")
+    result = input('please input a expression:')
     if result.endswith('='):
         result = result[:-1]
 
@@ -68,9 +68,9 @@ if __name__ == "__main__":
     while True:
          lnum, operator, rnum = get_operator_nums()
          if lnum == 0 and rnum == 0:
-             print "ending!!!!!!!!!!"
+             print ("ending!!!!!!!!!!")
              break
          operatorClass = operatorInfo.get(operator,Adder)()
          cal = Calculator(lnum,operatorClass,rnum)
          cal.show_result()
-         print "="*20
+         print("="*20)
