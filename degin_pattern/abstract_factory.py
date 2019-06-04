@@ -9,10 +9,10 @@ class PetShop:
 
     def show_pet(self):
         animal = self.animal_factory.get_pet()
-        print "the animal is:",animal.__class__
-        print "the animal speak:",animal.speak()
-        print "the animal food:",self.animal_factory.get_food()
-        print "the pet color:", animal.color()
+        print("the animal is:",animal.__class__)
+        print("the animal speak:",animal.speak())
+        print("the animal food:",self.animal_factory.get_food())
+        print("the pet color:", animal.color())
 
 class Dog:
     _color = ['yellow','white','black','blue']
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     shop = PetShop(DogFactory())
     shop.show_pet()
 
-    print "====================="
+    print("=====================")
 
     shop = PetShop()
     shop.animal_factory = get_factory()
