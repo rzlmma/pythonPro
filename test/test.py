@@ -1,32 +1,50 @@
 # -*- coding:utf-8 -*-
-"""
-a.txt内容如下。xx为汉字。若最后一个数字相同，则按每一行第一个数字为准从小到大排序
-2877,xx,xx,xx,xx,xx,xx,10
-2878,xx,xx,xx,xx,xx,1264
-2880,xx,xx,xx,xx,xx,xx,6
-2881,xx,xx,xx,xx,xx,xx,xx,248
-2882,xx,1
-2887,xx,xx,xx,1
-希望得到的结果存到b.txt 里边。内容如下：
-2878,xx,xx,xx,xx,xx,1264
-2881,xx,xx,xx,xx,xx,xx,xx,248
-2877,xx,xx,xx,xx,xx,xx,10
-2880,xx,xx,xx,xx,xx,xx,6
-2882,xx,1
-2887,xx,xx,xx,1
-"""
+class Solution:
+    def maxArea(self, height):
+        begin = 0
+        end = len(height)
+        max_area = self.get_max_area(height, begin, end)
+        return max_area
 
-rest = []
-with open('spam.txt') as f:
-    for line in f:
-       linelist = line.strip('\n').split(',')
-       line_rest = []
-       for item in linelist:
-           line_rest.append(int(item))
-       rest.append(line_rest)
-re_rest = sorted(rest, key=lambda x: x[-1],reverse=True)
+    def get_max_area(self, height, begin, end):
+        mid = int((begin+end)/2)
+        if mid == begin:
+            return 0
+        else:
+            print("begin:%s    end:%s \n" % (begin, end))
+            left = self.get_max_area(height, begin, mid)
+            right = self.get_max_area(height, mid+1, end)
+            mid = self.max_area_accross_mid(height, begin, mid, end)
 
-with open('b.txt','w') as fb:
-    for item in re_rest:
-        item = str(item).strip('[ ]')
-        fb.write(item+'\n')
+            print("left:%s   right:%s   mid:%s" % (left, right, mid))
+            if left > right and left > mid:
+                return left
+            elif right > left and right > mid:
+                return right
+            elif mid > left and mid > right:
+                return mid
+
+    def max_area_accross_mid(self, height, begin, mid, end):
+        left_area = 0
+        r_area = 0
+        for i in range(mid-1, begin-1, -1):
+            area = (mid-i) * min(height[i], height[mid])
+            if area > left_area:
+                left_area = area
+
+        for j in range(mid+1, end):
+            area = (j-mid-1) * min(height[j], height[mid+1])
+            if r_area < area:
+                r_area = area
+
+        area = left_area + r_area
+        return area
+
+
+if __name__ == "__main__":
+    height = [1,8,6,2,5,4,8,3,7]
+
+    s = Solution()
+    s.maxArea(height)
+
+
