@@ -2,3 +2,4 @@
 .idea/*
 .ipynb*
 test/*
+*.log
