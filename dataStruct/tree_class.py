@@ -69,8 +69,8 @@ if __name__ == "__main__":
     root.left = t_3
     root.right = t_2
 
-    print Btree.preorder_traverse(root)
+    print(Btree.preorder_traverse(root))
 
-    print Btree.search(root, 5)
+    print(Btree.search(root, 5))
 
-    print Btree.insert(root, nodes[6], 'left', BinTNode(10))
+    print(Btree.insert(root, nodes[6], 'left', BinTNode(10)))
