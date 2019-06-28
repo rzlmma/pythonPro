@@ -3,3 +3,6 @@
 .ipynb*
 test/*
 *.log
+*.text
+*.txt
+*.sql
