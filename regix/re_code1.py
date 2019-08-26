@@ -25,10 +25,7 @@ html_text = """
 
 def parse_html(patterns, text):
     for item in patterns:
-        print "pattern:",item
         res = re.findall(item, text)
-        print "findall:", res
-        print "************************"
 
 
 def se_groups(patterns, text):
@@ -39,10 +36,6 @@ def se_groups(patterns, text):
     """
     p = re.compile(patterns)
     m = p.search(text)
-    print "groups:",m.groups()
-    print "0:",m.group(0)           #返回匹配整个表达式的结果
-    print "1:",m.group(1)           #返回与第一个分组匹配的结果
-    print "2:",m.group(2)           #返回与第二个分组匹配的结果
 
 
 def re_search():
@@ -53,12 +46,11 @@ def re_search():
     patt = r'\bT\w+'
     p = re.compile(patt)
     cp = re.compile(patt,re.IGNORECASE)
-    print "=========without case=========="
+
     m = p.findall(text)
-    print "findall:",m
-    print "==========case============="
+
     cm = cp.findall(text)
-    print "findall:",cm
+
 
 
 if __name__ == '__main__':

@@ -10,13 +10,9 @@
 """
 import re
 def test_regix(patterns, text):
-    print "text:",text
     for pattern ,label in patterns:
-        print "pattern:%s,   label:%s" %(pattern, label)
-        print "***"*6
+
         math_strings = re.findall(pattern, text)
-        print "findall:",math_strings
-        print "***"*6
 
         # print "$$"*6
         # se = re.search(pattern, text)
@@ -28,9 +24,6 @@ def test_regix(patterns, text):
         for item in match:
             s = item.start()
             e = item.end()
-            print "出现位置：%d %d"%(s,e)
-            print item.group()
-        print "==="*6
 
 
 if __name__ == '__main__':
@@ -44,7 +37,7 @@ if __name__ == '__main__':
             'abbaabbbbbaaa'
     )
 
-    print "========禁用贪心匹配======="
+    print("========禁用贪心匹配=======")
     # 禁用贪心匹配模式
     test_regix([('ab*?', 'a followed by b zero or more times'),  #b出现0次
             ('ab+?', 'a followed by b one or more times'),       #b出现1次

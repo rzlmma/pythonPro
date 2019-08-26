@@ -24,13 +24,11 @@ for text in values:
                 ],
                text
                )
-    print '\n'
 
-print '\n'
 
 test_regix([('[^-,. ]+', '除了-,. 空格'), ('[^-. ]+', '除了-.空格')], 'this is -- my hose, yellow,red, blue.')
 
-print"=========测试字符区间========"
+
 test_regix([('[a-zA-Z]+', 'a-z and A-Z'),
             ('[a-z]+',  'a-z'),
             ('[A-Z][a-z]+', 'A-Z a-z'),
