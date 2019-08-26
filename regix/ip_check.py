@@ -36,5 +36,4 @@ if __name__ == '__main__':
     ip_check('172.16.30.12')
     phone_check('18823456788')
     email_check('admin@163.com')
-    print("global(): ", globals())
 
