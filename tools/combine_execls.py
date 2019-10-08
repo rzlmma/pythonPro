@@ -14,7 +14,7 @@ sys.path.append(BASE_DIR)
 
 
 # EXECL_DIRS = ["xueqian", "xiaoyu", "xiaoying", "xiaoshu"]
-EXECL_DIRS = ["xiaoying", "xiaoshu"]
+EXECL_DIRS = ["xiaoshu"]
 EXECL_FIELS_MAP = {"xueqian": "学前包含图片的题目", "xiaoyu": "小语包含图片的题目",
                        "xiaoying": "小英包含图片的题目", "xiaoshu": "小数包含图片的题目"}
 
@@ -37,6 +37,8 @@ def combine_execl_files():
         files = os.listdir(path_dir)
         for file in files:
             file_path = os.path.join(path_dir, file)
+            if '.DS_Store' in file_path:
+                continue
             try:
                 df = pd.read_excel(file_path)
                 if not df.empty:
@@ -54,13 +56,14 @@ def combine_execl_files():
         step = 500000
         numbers = int(df_cnt/step) + 1
         for i in range(1, numbers+1):
+            start_time_2 = datetime.datetime.now()
             start = (i-1) * step
             end = i * step
             print("start:%s   end:%s " % (start, end))
             sub_df = new_df[start:end]
             a_file_name = os.path.join(BASE_DIR, 'tools/%s_%s.xlsx' % (EXECL_FIELS_MAP.get(item), i))
             sub_df.to_excel(a_file_name, index=False, encoding='utf8')
-            print("write data to excel success !!!")
+            print("write data to excel success !!!   cost time: %s" % (datetime.datetime.now() - start_time_2))
 
 
 if __name__ == "__main__":
