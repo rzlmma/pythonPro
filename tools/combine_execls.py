@@ -47,31 +47,31 @@ def combine_execl_files():
             except Exception as exc:
                 print("error file_path: %s     error:%s" % (file_path, str(exc)))
 
+        # 合并多个execl
         print("total df number: %s" % len(dfs))
         new_df = pd.concat(dfs, ignore_index=True)
+        new_df = new_df.sort_values(by=['图片url'])
+        print("total rows: %s   total cost time:%s " % (len(new_df), datetime.datetime.now()-start_time))
 
-        data = new_df['题目ID']
-        print("item:%s   before count:%s" % (item, len(data)))
+        df_cnt = len(new_df)
+        step = 500000
+        numbers = int(df_cnt/step) + 1
+        for i in range(1, numbers+1):
+            start_time_2 = datetime.datetime.now()
+            start = (i-1) * step
+            end = i * step
+            print("start:%s   end:%s " % (start, end))
+            sub_df = new_df[start:end]
+            a_file_name = os.path.join(BASE_DIR, 'tools/%s_%s.xlsx' % (EXECL_FIELS_MAP.get(item), i))
+            sub_df.to_excel(a_file_name, index=False, encoding='utf8')
+            print("write data to excel success !!!   cost time: %s" % (datetime.datetime.now() - start_time_2))
 
-        data = data.drop_duplicates()
-        print("item:%s    count:%s" % (item, len(data)))
+        # 获取题目数
+        ques_ids = new_df['题目ID']
+        print("item:%s   before count:%s" % (item, len(ques_ids)))
 
-
-        # new_df = new_df.sort_values(by=['图片url'])
-        # print("total rows: %s   total cost time:%s " % (len(new_df), datetime.datetime.now()-start_time))
-        #
-        # df_cnt = len(new_df)
-        # step = 500000
-        # numbers = int(df_cnt/step) + 1
-        # for i in range(1, numbers+1):
-        #     start_time_2 = datetime.datetime.now()
-        #     start = (i-1) * step
-        #     end = i * step
-        #     print("start:%s   end:%s " % (start, end))
-        #     sub_df = new_df[start:end]
-        #     a_file_name = os.path.join(BASE_DIR, 'tools/%s_%s.xlsx' % (EXECL_FIELS_MAP.get(item), i))
-        #     sub_df.to_excel(a_file_name, index=False, encoding='utf8')
-        #     print("write data to excel success !!!   cost time: %s" % (datetime.datetime.now() - start_time_2))
+        data = ques_ids.drop_duplicates()
+        print("item:%s    question count:%s" % (item, len(data)))
 
 
 if __name__ == "__main__":
